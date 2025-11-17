@@ -35,7 +35,11 @@ function App() {
           />
         </div>
         {/* Meal list */}
-        <MealList meals={filteredMeals} onDelete={removeMeal} />
+        <MealList
+          meals={filteredMeals}
+          onDelete={removeMeal}
+          onEdit={editMeal}
+        />
         {/* Meal stats */}
         <MealStats meals={filteredMeals} />
       </div>
