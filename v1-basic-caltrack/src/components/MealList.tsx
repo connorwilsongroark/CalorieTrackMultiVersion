@@ -3,12 +3,9 @@ import type { Meal } from "../types/Meal";
 interface MealListProps {
   meals: Meal[];
   onDelete: (id: string) => void;
-  loading?: boolean;
 }
 
-export function MealList({ meals, onDelete, loading }: MealListProps) {
-  if (loading) return <p>Loading...</p>;
-
+export function MealList({ meals, onDelete }: MealListProps) {
   return (
     <ul className=''>
       {meals.map((meal) => (
