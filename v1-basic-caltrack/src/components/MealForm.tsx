@@ -10,6 +10,10 @@ export default function MealForm({ onSubmit }: MealFormProps) {
   const [name, setName] = useState("");
   const [calories, setCalories] = useState("");
   const [protein, setProtein] = useState("");
+  const [date, setDate] = useState(() => {
+    // default to the current date & time
+    return new Date().toISOString().split("T")[0];
+  });
 
   function handleSubmit(e: React.FormEvent) {
     // Stop default submission behavior
@@ -26,6 +30,7 @@ export default function MealForm({ onSubmit }: MealFormProps) {
       name,
       calories: Number(calories),
       protein: Number(protein),
+      date,
       createdAt: new Date().toISOString(),
     };
 
@@ -75,6 +80,18 @@ export default function MealForm({ onSubmit }: MealFormProps) {
           value={protein}
           onChange={(e) => setProtein(e.target.value)}
           placeholder='15'
+          required
+        />
+      </div>
+
+      {/* Meal date */}
+      <div>
+        <label htmlFor=''>Date</label>
+        <input
+          type='date'
+          className=''
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
           required
         />
       </div>
